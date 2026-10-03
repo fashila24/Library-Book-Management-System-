@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Library Book Management System</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#f4f6f8}header{background:#2c3e50;color:white;padding:20px;text-align:center}.container{width:90%;margin:25px auto}input{width:100%;padding:12px;margin-bottom:20px;border:1px solid #ccc;border-radius:5px;box-sizing:border-box}.book{background:white;padding:20px;margin-bottom:15px;border-radius:8px;box-shadow:0 2px 5px #ccc}.book h3{margin-top:0}button{padding:10px 15px;background:#3498db;color:white;border:none;border-radius:5px;cursor:pointer}button:hover{background:#2980b9}button:disabled{background:#999}.available{color:green;font-weight:bold}.unavailable{color:red;font-weight:bold}
+</style>
+</head>
+<body>
+<header><h1>📚 Library Book Management System</h1><p>Search and Request Books</p></header>
+<div class="container">
+<input type="text" id="search" placeholder="Search for a book..." onkeyup="searchBooks()">
+<div id="books">
+<div class="book"><h3>Python Programming</h3><p>Author: Mark Lutz</p><p class="available">Available</p><button onclick="requestBook('Python Programming')">Request Book</button></div>
+<div class="book"><h3>Machine Learning</h3><p>Author: Tom Mitchell</p><p class="available">Available</p><button onclick="requestBook('Machine Learning')">Request Book</button></div>
+<div class="book"><h3>Artificial Intelligence</h3><p>Author: Stuart Russell</p><p class="unavailable">Not Available</p><button disabled>Not Available</button></div>
+<div class="book"><h3>Data Science</h3><p>Author: John Smith</p><p class="available">Available</p><button onclick="requestBook('Data Science')">Request Book</button></div>
+</div></div>
+<script>
+function searchBooks(){let input=document.getElementById('search').value.toLowerCase();let books=document.getElementsByClassName('book');for(let i=0;i<books.length;i++){let title=books[i].getElementsByTagName('h3')[0].innerText.toLowerCase();books[i].style.display=title.includes(input)?'block':'none';}}
+function requestBook(bookName){alert('Book requested successfully!\n\nBook: '+bookName);}
+</script>
+</body>
+</html>
